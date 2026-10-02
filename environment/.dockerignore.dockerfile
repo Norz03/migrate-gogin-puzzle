@@ -1,0 +1,8 @@
+solution/
+tests/
+.git
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.ruff_cache/

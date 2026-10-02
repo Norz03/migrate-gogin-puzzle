@@ -1,0 +1,5 @@
+We need to automate the manual puzzle tower operations detailed in /app/docs/runbook.md. Currently, we manage the game state via a local SQLite database at /app/data/tower.sql, but we are migrating to a Go-based API backend. You need to write a migration script in /app/migrate.py that reads the current SQLite database state and synchronizes it with the new API.
+
+The SQLite database contains a `rooms` table with the following schema: `room_id` (integer, primary key), `status` (string, either 'locked', 'active', or 'cleared'), and `hint_unlocked` (boolean integer, 0 or 1). Your script must query this table and push every room's state to the local API endpoint. Ensure your script is idempotent—if it runs twice, it should not duplicate entries or cause server errors.
+
+Additionally, after the migration completes, generate a summary file at /app/manifest.json. This must be a JSON object containing a `total_rooms_migrated` integer field and a `target_checksum` string field (which represents the SHA-256 hash of all concatenated `room_id`s in ascending order). Ensure your script runs entirely offline.

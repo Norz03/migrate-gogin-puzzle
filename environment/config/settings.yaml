@@ -1,0 +1,9 @@
+api:
+  host: "127.0.0.1"
+  port: 8080
+  timeout_seconds: 5
+  state_filepath: "/app/data/rooms.json"
+
+database:
+  filepath: "/app/data/tower.sql"
+  read_only: true

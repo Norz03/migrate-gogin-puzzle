@@ -1,0 +1,6 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+environment/data/tower.sql
+environment/data/rooms.json
+environment/manifest.json
